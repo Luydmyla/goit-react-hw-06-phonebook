@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import { App } from 'components/App';
 import App from './components/App';
+import 'modern-normalize/modern-normalize.css';
+
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 
