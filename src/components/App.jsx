@@ -18,9 +18,16 @@ import { updateFilter } from '../redux/filterSlice';
 // ];
 
 export default function App() {
-  // const [contacts, setContacts] = useState(initialContacts);
+  // const itemsContact = () => {
+  //   return JSON.parse(localStorage.getItem('contacts')) || initialContacts;
+  // };
+  // const [contacts, setContacts] = useState(itemsContact());
   const items = useSelector(state => state.items);
   const value = useSelector(state => state.filter);
+  // useEffect(() => {
+  //   window.localStorage.setItem('contacts', JSON.stringify(contacts));
+  // }, [contacts]);
+
   const dispatch = useDispatch();
   // const addContact = ({ name, number }) => {
   //   const contact = {
