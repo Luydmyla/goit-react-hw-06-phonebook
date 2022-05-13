@@ -6,7 +6,9 @@ import ContactList from './ContactList';
 import Filter from './Filter';
 import './container.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { addItems, deleteItems, updateFilter } from '../redux/store';
+// import { addItems, deleteItems, updateFilter } from '../redux/store';
+import { addItems, deleteItems } from '../redux/itemsSlice';
+import { updateFilter } from '../redux/filterSlice';
 
 // const initialContacts = [
 //   { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
@@ -18,9 +20,8 @@ import { addItems, deleteItems, updateFilter } from '../redux/store';
 export default function App() {
   // const [contacts, setContacts] = useState(initialContacts);
   const items = useSelector(state => state.items);
-  const dispatch = useDispatch();
   const value = useSelector(state => state.filter);
-
+  const dispatch = useDispatch();
   // const addContact = ({ name, number }) => {
   //   const contact = {
   //     id: nanoid(),
