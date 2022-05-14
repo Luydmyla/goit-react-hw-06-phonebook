@@ -22,8 +22,13 @@ export default function App() {
   //   return JSON.parse(localStorage.getItem('contacts')) || initialContacts;
   // };
   // const [contacts, setContacts] = useState(itemsContact());
-  const items = useSelector(state => state.items);
+  // треба деструктуризувати айтемси зі стейту, тому що після добавлення персисту, стейт з полем айтемс - це обьєкт, а не масив
+  // і у нього є свойство айтемс(масив)
+  const { items } = useSelector(state => state.items);
+  // console.log(items);
+  // а до фільтра ми не добавляли персист, тому тут не деструктуризуємо
   const value = useSelector(state => state.filter);
+  // console.log(value);
   // useEffect(() => {
   //   window.localStorage.setItem('contacts', JSON.stringify(contacts));
   // }, [contacts]);
@@ -50,12 +55,14 @@ export default function App() {
     // const { contacts, filter } = this.state;
     const normalizedFilter = value.toLowerCase();
     //  return contacts.filter(contact =>
+    // console.log(items);
     return items.filter(contact =>
       contact.name.toLowerCase().includes(normalizedFilter)
     );
   };
 
   const deleteContact = contactId => {
+    // console.log(contactId);
     dispatch(deleteItems(contactId));
     // setContacts(contacts.filter(contact => contact.id !== contactId));
     dispatch(updateFilter(''));
